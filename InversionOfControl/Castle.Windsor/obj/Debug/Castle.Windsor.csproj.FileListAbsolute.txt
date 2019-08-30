@@ -1,0 +1,16 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.Adapters.ComponentModel.ContainerAdapter.resources
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.Adapters.ComponentModel.ContainerWrapper.resources
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.csproj.GenerateResource.Cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\aa\Castle.Windsor.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\aa\Castle.Windsor.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\aa\Castle.Windsor.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\aa\Castle.Windsor.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.Adapters.ComponentModel.ContainerAdapter.resources
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.Adapters.ComponentModel.ContainerWrapper.resources
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.csproj.GenerateResource.Cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor\obj\Debug\Castle.Windsor.pdb

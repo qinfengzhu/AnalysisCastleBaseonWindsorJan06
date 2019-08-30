@@ -1,0 +1,10 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\bin\AspectSharp.Lang.Tests.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\bin\AspectSharp.Lang.Tests.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\AspectSharp.Lang.Tests\obj\Debug\AspectSharp.Lang.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\AspectSharp.Lang.Tests\obj\Debug\AspectSharp.Lang.Tests.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\AspectSharp.Lang.Tests\obj\Debug\AspectSharp.Lang.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\bin\AspectSharp.Lang.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\bin\AspectSharp.Lang.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\AspectSharp.Lang.Tests\obj\Debug\AspectSharp.Lang.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\AspectSharp.Lang.Tests\obj\Debug\AspectSharp.Lang.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\AspectSharp.Lang.Tests\obj\Debug\AspectSharp.Lang.Tests.pdb

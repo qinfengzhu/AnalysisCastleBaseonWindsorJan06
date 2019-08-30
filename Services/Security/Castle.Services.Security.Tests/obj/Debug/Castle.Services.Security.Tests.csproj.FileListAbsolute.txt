@@ -1,0 +1,5 @@
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Security\bin\Castle.Services.Security.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Security\bin\Castle.Services.Security.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Security\Castle.Services.Security.Tests\obj\Debug\Castle.Services.Security.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Security\Castle.Services.Security.Tests\obj\Debug\Castle.Services.Security.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Security\Castle.Services.Security.Tests\obj\Debug\Castle.Services.Security.Tests.pdb

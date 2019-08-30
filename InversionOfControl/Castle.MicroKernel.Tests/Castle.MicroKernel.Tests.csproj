@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF9313A4-C6E0-40F7-9E3F-530D547D3AEF}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>Castle.MicroKernel.Tests</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Castle.MicroKernel.Tests</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Castle.MicroKernel\Castle.MicroKernel.csproj">
+      <Name>Castle.MicroKernel</Name>
+      <Project>{8C6AADEB-D099-4D2A-8F5B-4EBC12AC9159}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Castle.Model\Castle.Model.csproj">
+      <Name>Castle.Model</Name>
+      <Project>{6F052973-C8E0-41EB-BAAF-B052509B5597}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BestConstructorTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BinaryTreeComponentNameTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\CommonImpl1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\CommonImpl2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\CommonServiceUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\CommonServiceUser2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\ComponentFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\CustomerImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\CustomerImpl2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\CustomLifestyleManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\DefaultCustomer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\DefaultMailSenderService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\DefaultSpamService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\DefaultSpamServiceWithConstructor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\DefaultTemplateEngine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\HiperFacility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\ICommon.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassComponents\ICustomer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Components\ClassWithConstructors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\ConfigurationTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DefaultConversionManagerTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DependencyGraph.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DependencyResolvers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DependencyResolvingTestCases.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facilities\Startable\Components\NoInterfaceStartableComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facilities\Startable\Components\StartableComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Facilities\Startable\StartableFacilityTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FacilityTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GraphTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifecycle\Components\HttpFakeServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifecycle\LifecycleTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifestyle\Components\CustomComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifestyle\Components\IComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifestyle\Components\MyLifestyleHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifestyle\Components\PerThreadComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifestyle\Components\SingletonComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifestyle\Components\TransientComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lifestyle\LifestyleManagerTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MicroKernelTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NamingPartsSubSystemTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pools\MultithreadedPooledTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pools\PoolableComponent1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pools\PooledLifestyleManagerTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SerializationTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SubContainers\SubContainersTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UnsatisfiedDependenciesTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

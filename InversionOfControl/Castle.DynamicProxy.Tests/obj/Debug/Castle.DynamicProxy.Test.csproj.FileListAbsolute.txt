@@ -1,0 +1,11 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\Tools\DynamicProxy\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\tt\Castle.DynamicProxy.Test.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\tt\Castle.DynamicProxy.Test.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\tt\Castle.DynamicProxy.Test.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\tt\Castle.DynamicProxy.Test.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.pdb

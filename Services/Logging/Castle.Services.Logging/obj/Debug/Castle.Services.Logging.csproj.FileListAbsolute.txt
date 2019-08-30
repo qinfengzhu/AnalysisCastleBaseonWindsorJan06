@@ -1,0 +1,5 @@
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging\bin\Debug\Castle.Services.Logging.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging\bin\Debug\Castle.Services.Logging.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging\obj\Debug\Castle.Services.Logging.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging\obj\Debug\Castle.Services.Logging.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging\obj\Debug\Castle.Services.Logging.pdb

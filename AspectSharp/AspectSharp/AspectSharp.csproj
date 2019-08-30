@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C50C59E8-410B-48C6-8CD0-DB351C0AB75E}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>AspectSharp</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AspectSharp</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AopAlliance\AopAlliance.csproj">
+      <Name>AopAlliance</Name>
+      <Project>{74C3CE90-25AF-4998-9123-61D19041AF68}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\AspectSharp.Lang\AspectSharp.Lang.csproj">
+      <Name>AspectSharp.Lang</Name>
+      <Project>{6B00E2C0-C58E-4399-A323-A034415E67D4}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="antlr.runtime">
+      <Name>antlr.runtime</Name>
+      <HintPath>..\lib\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy">
+      <Name>Castle.DynamicProxy</Name>
+      <HintPath>..\..\Tools\DynamicProxy\bin\t\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AspectEngine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssertUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Builder\AppDomainConfigurationBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Builder\AspectEngineBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Builder\AspectLanguageEngineBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Builder\BuilderException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Builder\CodeEngineBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Builder\SectionHandler\AspectSharpConfigurationHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Builder\XmlEngineBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Dispatcher\DefaultDispatcherFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Dispatcher\DefaultInvocationDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Dispatcher\DefaultMethodInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\DynamicProxy\CustomProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IAspectMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IClassMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IInvocationDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IInvocationDispatcherFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IJoinPointMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IMutableMethodInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IProxyAware.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\IProxyFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Matchers\AssignableMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Matchers\DefaultAspectMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Matchers\DefaultJoinPointMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Matchers\MatcherException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Matchers\NamespaceMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Matchers\SingleTypeMatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Matchers\TypeAliasDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Proxy\DefaultProxyFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Proxy\ProxyFactoryException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

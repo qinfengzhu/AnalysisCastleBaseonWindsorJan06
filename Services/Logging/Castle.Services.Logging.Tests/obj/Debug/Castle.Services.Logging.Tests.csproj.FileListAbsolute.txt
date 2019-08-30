@@ -1,0 +1,9 @@
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\bin\Debug\Castle.Services.Logging.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\bin\Debug\Castle.Services.Logging.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\bin\Debug\Castle.Services.Logging.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\bin\Debug\nunit.framework.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\bin\Debug\Castle.Services.Logging.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\bin\Debug\nunit.framework.xml
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\obj\Debug\Castle.Services.Logging.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\obj\Debug\Castle.Services.Logging.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.Tests\obj\Debug\Castle.Services.Logging.Tests.pdb

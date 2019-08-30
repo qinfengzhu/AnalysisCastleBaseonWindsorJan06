@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF89321E-FB2A-41B6-85B3-794D50A55CF1}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>Castle.DynamicProxy.Test</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Castle.DynamicProxy.Test</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\bin\tt\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\..\bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Castle.DynamicProxy\Castle.DynamicProxy.csproj">
+      <Name>Castle.DynamicProxy</Name>
+      <Project>{70EE6AF2-1F6D-4CC5-A1B2-C3182F035F67}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SharedLibs\NUnit.2.6.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessLevelTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CachedTypeTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassMarshalByRef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassWithConstructors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassWithGuid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassWithIndexer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassWithMarkerInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassWithProtectedMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassWithRefType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ClassWithSByteEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\DummyReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\IDataReaderProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\IndexerClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\MySerializableClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\NonPublicConstructorClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\NonPublicMethodsClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\NoVirtualMethodClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\RefAndOutClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\SealedMethodsClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\ServiceClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\SimpleClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\SpecializedServiceClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\SubSimpleClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassInterfaces\IMyInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassInterfaces\IMySecondInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassInterfaces\IServiceStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassInterfaces\MyInterfaceImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassInterfaces\MySecondInterfaceImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassInterfaces\ServiceStatusImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassWithCtorAndVirtualCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EasyTypeBuilderTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExplicitImplementationOfISerializable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interceptors\HashtableInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interceptors\LogInvokeInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interceptors\MyInterfaceProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interceptors\RefAndOutInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interceptors\ResultModifiedInvocationHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MethodInvocationTargetTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MethodsWithAttributesOnParameters.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mixins\ComplexMixin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mixins\OtherMixin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mixins\SimpleMixin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MixinTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MultithreadTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProxyGeneratorTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProxyingAbstractClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SerializableClassTestCase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

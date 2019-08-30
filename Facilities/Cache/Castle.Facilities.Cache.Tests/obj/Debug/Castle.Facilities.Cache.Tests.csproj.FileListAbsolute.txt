@@ -1,0 +1,10 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\Facilities\Cache\bin\Castle.Facilities.Cache.Tests.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\Facilities\Cache\bin\Castle.Facilities.Cache.Tests.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\Facilities\Cache\Castle.Facilities.Cache.Tests\obj\Debug\Castle.Facilities.Cache.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\Facilities\Cache\Castle.Facilities.Cache.Tests\obj\Debug\Castle.Facilities.Cache.Tests.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\Facilities\Cache\Castle.Facilities.Cache.Tests\obj\Debug\Castle.Facilities.Cache.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Facilities\Cache\bin\Castle.Facilities.Cache.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Facilities\Cache\bin\Castle.Facilities.Cache.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Facilities\Cache\Castle.Facilities.Cache.Tests\obj\Debug\Castle.Facilities.Cache.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Facilities\Cache\Castle.Facilities.Cache.Tests\obj\Debug\Castle.Facilities.Cache.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Facilities\Cache\Castle.Facilities.Cache.Tests\obj\Debug\Castle.Facilities.Cache.Tests.pdb

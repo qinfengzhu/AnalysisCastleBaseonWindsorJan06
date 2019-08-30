@@ -1,0 +1,14 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.Adapters.ComponentModel.TestComponent.resources
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.csproj.GenerateResource.Cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\Castle.Windsor.Tests.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\Castle.Windsor.Tests.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\Castle.Windsor.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\Castle.Windsor.Tests.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.Adapters.ComponentModel.TestComponent.resources
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.csproj.GenerateResource.Cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Windsor.Tests\obj\Debug\Castle.Windsor.Tests.pdb

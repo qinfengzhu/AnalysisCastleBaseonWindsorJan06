@@ -1,0 +1,5 @@
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\TransactionMangement\bin\Castle.Services.Transaction.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\TransactionMangement\bin\Castle.Services.Transaction.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\TransactionMangement\Castle.Services.Transaction\obj\Debug\Castle.Services.Transaction.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\TransactionMangement\Castle.Services.Transaction\obj\Debug\Castle.Services.Transaction.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\TransactionMangement\Castle.Services.Transaction\obj\Debug\Castle.Services.Transaction.pdb

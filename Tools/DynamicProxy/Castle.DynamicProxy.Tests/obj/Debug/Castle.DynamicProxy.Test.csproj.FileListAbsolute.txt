@@ -1,0 +1,2 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\Tools\DynamicProxy\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Tools\DynamicProxy\Castle.DynamicProxy.Tests\obj\Debug\Castle.DynamicProxy.Test.csprojResolveAssemblyReference.cache

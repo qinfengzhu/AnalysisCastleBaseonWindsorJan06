@@ -1,0 +1,10 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\temp\Castle.MicroKernel.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\temp\Castle.MicroKernel.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.MicroKernel\obj\Debug\Castle.MicroKernel.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.MicroKernel\obj\Debug\Castle.MicroKernel.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.MicroKernel\obj\Debug\Castle.MicroKernel.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\temp\Castle.MicroKernel.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\temp\Castle.MicroKernel.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.MicroKernel\obj\Debug\Castle.MicroKernel.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.MicroKernel\obj\Debug\Castle.MicroKernel.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.MicroKernel\obj\Debug\Castle.MicroKernel.pdb

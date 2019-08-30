@@ -1,0 +1,10 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\bin\AspectSharp.Example.exe
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\bin\AspectSharp.Example.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\AspectSharp.Example\obj\Debug\AspectSharp.Example.csprojResolveAssemblyReference.cache
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\AspectSharp.Example\obj\Debug\AspectSharp.Example.exe
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\AspectSharp\AspectSharp.Example\obj\Debug\AspectSharp.Example.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\bin\AspectSharp.Example.exe
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\bin\AspectSharp.Example.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\AspectSharp.Example\obj\Debug\AspectSharp.Example.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\AspectSharp.Example\obj\Debug\AspectSharp.Example.exe
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\AspectSharp\AspectSharp.Example\obj\Debug\AspectSharp.Example.pdb

@@ -1,0 +1,9 @@
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\bin\Debug\Castle.Services.Logging.Log4netIntegration.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\bin\Debug\Castle.Services.Logging.Log4netIntegration.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\bin\Debug\Castle.Services.Logging.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\bin\Debug\log4net.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\bin\Debug\Castle.Services.Logging.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\bin\Debug\log4net.xml
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\obj\Debug\Castle.Services.Logging.log4netIntegration.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\obj\Debug\Castle.Services.Logging.Log4netIntegration.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\Services\Logging\Castle.Services.Logging.log4netIntegration\obj\Debug\Castle.Services.Logging.Log4netIntegration.pdb

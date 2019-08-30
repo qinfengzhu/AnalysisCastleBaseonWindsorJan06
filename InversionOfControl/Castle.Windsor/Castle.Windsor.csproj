@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60EFCB9B-E3FF-46A5-A2D2-D9F0EF75D5FE}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>Castle.Windsor</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Castle.Windsor</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\bin\aa\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Castle.DynamicProxy\Castle.DynamicProxy.csproj">
+      <Project>{70ee6af2-1f6d-4cc5-a1b2-c3182f035f67}</Project>
+      <Name>Castle.DynamicProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Castle.MicroKernel\Castle.MicroKernel.csproj">
+      <Name>Castle.MicroKernel</Name>
+      <Project>{8C6AADEB-D099-4D2A-8F5B-4EBC12AC9159}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Castle.Model\Castle.Model.csproj">
+      <Name>Castle.Model</Name>
+      <Project>{6F052973-C8E0-41EB-BAAF-B052509B5597}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapters\ComponentModel\ContainerAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adapters\ComponentModel\ContainerAdapterSite.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adapters\ComponentModel\ContainerWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adapters\ComponentModel\IContainerAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adapters\ComponentModel\IContainerAdapterSite.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adapters\ComponentModel\ServiceCreatorCallbackActivator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AsyncInitializationContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\AppDomain\CastleSectionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\CascadeConfigurationStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\IConfigurationInterpreter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\IConfigurationSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Interpreters\AbstractInterpreter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Interpreters\XmlInterpreter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Interpreters\XslContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\Interpreters\XslProcessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IContainerAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InitializationException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Installer\DefaultComponentInstaller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Installer\IComponentsInstaller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IWindsorContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\AbstractProxyFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\ComponentRealProxy.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\DefaultMethodInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\DefaultProxyFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\InterceptorChain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\MessageProxyInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\ProxySmartFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Proxy\RealProxyProxyFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WindsorContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Adapters\ComponentModel\ContainerAdapter.resx">
+      <DependentUpon>ContainerAdapter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adapters\ComponentModel\ContainerWrapper.resx">
+      <DependentUpon>ContainerWrapper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuration\Interpreters\XslProcessor.xslt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

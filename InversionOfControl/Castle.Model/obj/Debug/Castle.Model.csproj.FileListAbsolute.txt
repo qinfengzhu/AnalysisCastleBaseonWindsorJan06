@@ -1,0 +1,9 @@
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\Castle.Model.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\bin\Castle.Model.pdb
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Model\obj\Debug\Castle.Model.dll
+F:\view-projects\Castle\Windsor\Windsor-Release-Jan-06\InversionOfControl\Castle.Model\obj\Debug\Castle.Model.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\Castle.Model.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\bin\Castle.Model.pdb
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Model\obj\Debug\Castle.Model.csprojResolveAssemblyReference.cache
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Model\obj\Debug\Castle.Model.dll
+F:\view-projects\AnalysisCastleBaseonWindsorJan06\InversionOfControl\Castle.Model\obj\Debug\Castle.Model.pdb
