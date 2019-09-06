@@ -1,17 +1,3 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel
 {
 	using System;
@@ -30,105 +16,96 @@ namespace Castle.MicroKernel
 	using Castle.MicroKernel.Proxy;
 	using Castle.MicroKernel.SubSystems.Configuration;
 
-	/// <summary>
-	/// Default implementation of <see cref="IKernel"/>. 
-	/// This implementation is complete and also support a kernel 
-	/// hierarchy (sub containers).
-	/// </summary>
 	[Serializable]
 	public class DefaultKernel : KernelEventSupport, IKernel, IDeserializationCallback
 	{
-		#region Fields
+		#region 字段
 
 		/// <summary>
-		/// The parent kernel, if exists.
+		/// 父级内核
 		/// </summary>
 		private IKernel parentKernel;
 
 		/// <summary>
-		/// The implementation of <see cref="IHandlerFactory"/>
+		/// 处理程序工厂 <see cref="IHandlerFactory"/>
 		/// </summary>
 		private IHandlerFactory handlerFactory;
 
 		/// <summary>
-		/// The implementation of <see cref="IComponentModelBuilder"/>
+		/// 组件模型构建器 <see cref="IComponentModelBuilder"/>
 		/// </summary>
 		private IComponentModelBuilder modelBuilder;
 
 		/// <summary>
-		/// The dependency resolver.
+		/// 依赖分解器
 		/// </summary>
 		private IDependencyResolver resolver;
 
 		/// <summary>
-		/// Implements a policy to control component's
-		/// disposal that the usef forgot.
+		/// 组件控制规则
 		/// </summary>
 		private IReleasePolicy releaserPolicy;
 
 		/// <summary>
-		/// Holds the implementation of <see cref="IProxyFactory"/>
+		/// 代理工厂 <see cref="IProxyFactory"/>
 		/// </summary>
 		private IProxyFactory proxyFactory;
 
 		/// <summary>
-		/// List of <see cref="IFacility"/> registered.
+		/// 基础设施集合 <see cref="IFacility"/> registered.
 		/// </summary>
 		private IList facilities;
 
 		/// <summary>
-		/// Map of subsystems registered.
+		/// 子系统
 		/// </summary>
 		private IDictionary subsystems;
 		
 		/// <summary>
-		/// List of sub containers.
+		/// 子内核
 		/// </summary>
 		private IList childKernels;
 
 		#endregion
 
-		#region Constructors
+		#region 构造方法
 
 		/// <summary>
-		/// Constructs a DefaultKernel with no component
-		/// proxy support.
+		/// 默认构造器,不支持代理工厂
 		/// </summary>
 		public DefaultKernel() : this(new NotSupportedProxyFactory())
 		{
 		}
 
-		/// <summary>
-		/// Constructs a DefaultKernel with the specified
-		/// implementation of <see cref="IProxyFactory"/> and <see cref="IDependencyResolver"/>
-		/// </summary>
-		/// <param name="resolver"></param>
-		/// <param name="proxyFactory"></param>
-		public DefaultKernel(IDependencyResolver resolver, IProxyFactory proxyFactory) : this(proxyFactory)
+        /// <summary>
+        /// 内核指定构造函数 <see cref="IProxyFactory"/> and <see cref="IDependencyResolver"/>
+        /// </summary>
+        /// <param name="resolver">依赖分解器</param>
+        /// <param name="proxyFactory">代理工厂</param>
+        public DefaultKernel(IDependencyResolver resolver, IProxyFactory proxyFactory) : this(proxyFactory)
 		{
 			this.resolver = resolver;
 			this.resolver.Initialize(new DependencyDelegate(RaiseDependencyResolving));
 		}
 
 		/// <summary>
-		/// Constructs a DefaultKernel with the specified
-		/// implementation of <see cref="IProxyFactory"/>
+		/// 内核指定构造函数 <see cref="IProxyFactory"/>
 		/// </summary>
 		public DefaultKernel(IProxyFactory proxyFactory)
 		{
-			this.proxyFactory = proxyFactory;
+			this.proxyFactory = proxyFactory;  //代理工厂
 
-			this.childKernels = new ArrayList();
-			this.facilities = new ArrayList();
-			this.subsystems = new Hashtable();
+			this.childKernels = new ArrayList(); //子内核
+			this.facilities = new ArrayList(); //基础设施
+			this.subsystems = new Hashtable(); //子系统
 
 			RegisterSubSystems();
 
-			this.releaserPolicy = new LifecycledComponentsReleasePolicy();
-			this.handlerFactory = new DefaultHandlerFactory(this);
-			this.modelBuilder = new DefaultComponentModelBuilder(this);
-			this.resolver = new DefaultDependencyResolver(this);
-			this.resolver.Initialize(new DependencyDelegate(RaiseDependencyResolving));
+			this.releaserPolicy = new LifecycledComponentsReleasePolicy(); //释放规则
+			this.handlerFactory = new DefaultHandlerFactory(this); //处理程序工厂
+			this.modelBuilder = new DefaultComponentModelBuilder(this);//模型构建器
+			this.resolver = new DefaultDependencyResolver(this);//依赖分解器
+            this.resolver.Initialize(new DependencyDelegate(RaiseDependencyResolving));//依赖分解器初始化操作
 		}
 
 		public DefaultKernel(SerializationInfo info, StreamingContext context) : base(info, context)
@@ -142,8 +119,11 @@ namespace Castle.MicroKernel
 
 		#endregion
 
-		#region Overridables
+		#region 可重载方法
 
+        /// <summary>
+        /// 注册子系统
+        /// </summary>
 		protected virtual void RegisterSubSystems()
 		{
 			AddSubSystem( SubSystemConstants.ConfigurationStoreKey, 
@@ -161,8 +141,13 @@ namespace Castle.MicroKernel
 
 		#endregion
 
-		#region IKernel Members
+		#region 内核接口成员
 
+        /// <summary>
+        /// 添加组件
+        /// </summary>
+        /// <param name="key">组件的唯一标识</param>
+        /// <param name="classType">组件类型</param>
 		public virtual void AddComponent(String key, Type classType)
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -174,6 +159,12 @@ namespace Castle.MicroKernel
 			RegisterHandler(key, handler);
 		}
 
+        /// <summary>
+        /// 添加带有抽象与实现的组件
+        /// </summary>
+        /// <param name="key">组件唯一标识</param>
+        /// <param name="serviceType">抽象服务类型</param>
+        /// <param name="classType">具体实现类型</param>
 		public virtual void AddComponent(String key, Type serviceType, Type classType)
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -187,11 +178,11 @@ namespace Castle.MicroKernel
 		}
 
 		/// <summary>
-		/// 
+		/// 添加带有默认属性的组件
 		/// </summary>
-		/// <param name="key"></param>
-		/// <param name="classType"></param>
-		/// <param name="parameters"></param>
+		/// <param name="key">组件唯一标识</param>
+		/// <param name="classType">组件类型</param>
+		/// <param name="parameters">属性字典</param>
 		public virtual void AddComponentWithProperties( String key, Type classType, IDictionary parameters )
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -204,14 +195,14 @@ namespace Castle.MicroKernel
 			RegisterHandler(key, handler);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="key"></param>
-		/// <param name="serviceType"></param>
-		/// <param name="classType"></param>
-		/// <param name="parameters"></param>
-		public virtual void AddComponentWithProperties( String key, Type serviceType, Type classType, IDictionary parameters )
+        /// <summary>
+        /// 添加带有抽象与实现的组件,带有默认属性
+        /// </summary>
+        /// <param name="key">组件唯一标识</param>
+        /// <param name="serviceType">抽象服务类型</param>
+        /// <param name="classType">具体实现类型</param>
+        /// <param name="parameters">属性字典</param>
+        public virtual void AddComponentWithProperties( String key, Type serviceType, Type classType, IDictionary parameters )
 		{
 			if (key == null) throw new ArgumentNullException("key");
 			if (parameters == null) throw new ArgumentNullException("parameters");
@@ -225,10 +216,10 @@ namespace Castle.MicroKernel
 		}
 
 		/// <summary>
-		/// 
+		/// 添加组件模型
 		/// </summary>
-		/// <param name="model"></param>
-		public virtual void AddCustomComponent( ComponentModel model )
+		/// <param name="model">组件模型</param>
+		public virtual void AddCustomComponent(ComponentModel model )
 		{
 			if (model == null) throw new ArgumentNullException("model");
 
@@ -238,11 +229,10 @@ namespace Castle.MicroKernel
 		}
 
 		/// <summary>
-		/// Used mostly by facilities. Adds an instance
-		/// to be used as a component.
+        /// 常用于基础设施(facilities),添加一个实例当组件来使用
 		/// </summary>
-		/// <param name="key"></param>
-		/// <param name="instance"></param>
+		/// <param name="key">组件唯一标识</param>
+		/// <param name="instance">实例对象</param>
 		public void AddComponentInstance( String key, object instance )
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -259,14 +249,13 @@ namespace Castle.MicroKernel
 			RegisterHandler(key, handler);
 		}
 
-		/// <summary>
-		/// Used mostly by facilities. Adds an instance
-		/// to be used as a component.
-		/// </summary>
-		/// <param name="key"></param>
-		/// <param name="serviceType"></param>
-		/// <param name="instance"></param>
-		public void AddComponentInstance( String key, Type serviceType, object instance )
+        /// <summary>
+        /// 常用于基础设施(facilities),添加一个实例当组件来使用
+        /// </summary>
+        /// <param name="key">组件唯一标识</param>
+        /// <param name="serviceType">组件服务类型</param>
+        /// <param name="instance">组件具体实例对象</param>
+        public void AddComponentInstance( String key, Type serviceType, object instance )
 		{
 			if (key == null) throw new ArgumentNullException("key");
 			if (serviceType == null) throw new ArgumentNullException("serviceType");
@@ -615,20 +604,23 @@ namespace Castle.MicroKernel
 
 		#endregion
 
-		#region IDisposable Members
+		#region 析构成员
 
 		/// <summary>
-		/// Starts the process of component disposal.
+		/// 内核释放
 		/// </summary>
 		public virtual void Dispose()
 		{
-			DisposeSubKernels();
-			TerminateFacilities();
-			DisposeComponentsInstancesWithinTracker();
-			DisposeHandlers();
-			UnsubscribeFromParentKernel();
+			DisposeSubKernels();//释放子内核
+			TerminateFacilities();//结束基础设施
+			DisposeComponentsInstancesWithinTracker();//释放组件规则跟踪器
+			DisposeHandlers();//组件处理程序释放
+			UnsubscribeFromParentKernel();//解除父节点的事件订阅
 		}
 
+        /// <summary>
+        /// 终止所有的基础设施
+        /// </summary>
 		private void TerminateFacilities()
 		{
 			foreach(IFacility facility in facilities)
@@ -637,6 +629,9 @@ namespace Castle.MicroKernel
 			}
 		}
 
+        /// <summary>
+        /// 释放所有的组件处理程序
+        /// </summary>
 		private void DisposeHandlers()
 		{
 			GraphNode[] nodes = GraphNodes;
@@ -646,8 +641,8 @@ namespace Castle.MicroKernel
 			{
 				ComponentModel model = (ComponentModel) vertices[i];
 
-				// Prevent the removal of a component that belongs 
-				// to other container
+				//防止移除属于其他容器的组件
+
 				if (!NamingSubSystem.Contains(model.Name)) continue;
 				
 				bool successOnRemoval = RemoveComponent( model.Name );
@@ -690,13 +685,21 @@ namespace Castle.MicroKernel
 
 		#endregion
 
-		#region Protected members
+		#region 保护成员
 
+        /// <summary>
+        /// 命名子系统
+        /// </summary>
 		protected INamingSubSystem NamingSubSystem
 		{
 			get { return GetSubSystem(SubSystemConstants.NamingKey) as INamingSubSystem; }
 		}
 
+        /// <summary>
+        /// 注册处理的组件程序
+        /// </summary>
+        /// <param name="key">组件唯一标识</param>
+        /// <param name="handler">组件处理程序</param>
 		protected void RegisterHandler(String key, IHandler handler)
 		{
 			NamingSubSystem.Register(key, handler);
@@ -705,6 +708,11 @@ namespace Castle.MicroKernel
 			base.RaiseComponentRegistered(key, handler);
 		}
 
+        /// <summary>
+        /// 解析组件
+        /// </summary>
+        /// <param name="handler">处理组件程序接口</param>
+        /// <returns>组件对象</returns>
 		protected object ResolveComponent(IHandler handler)
 		{
 			object instance = handler.Resolve();
@@ -713,10 +721,9 @@ namespace Castle.MicroKernel
 
 			return instance;
 		}
-
 		#endregion
 
-		#region Serialization and Deserialization
+		#region 序列化与反序列化
 
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{

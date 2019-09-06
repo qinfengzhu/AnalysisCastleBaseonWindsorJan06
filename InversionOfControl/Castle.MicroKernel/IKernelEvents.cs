@@ -1,116 +1,83 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel
 {
 	using System;
 
 	using Castle.Model;
 
-	/// <summary>
-	/// Represents a delegate which holds basic information about a component.
-	/// </summary>
-	/// <param name="key">Key which identifies the component</param>
-	/// <param name="handler">handler that holds this component and is capable of 
-	/// creating an instance of it.
-	/// </param>
-	public delegate void ComponentDataDelegate( String key, IHandler handler );
+    /// <summary>
+    /// 组件包含基本信息的委托
+    /// </summary>
+    /// <param name="key">组件的唯一标识</param>
+    /// <param name="handler">处理程序,它能够实例化组件</param>
+    public delegate void ComponentDataDelegate( String key, IHandler handler );
+
+    /// <summary>
+    /// 组件包含基本信息与实例的委托
+    /// </summary>
+    /// <param name="model">组件的元数据信息(meta)</param>
+    /// <param name="instance">组件实例</param>
+    public delegate void ComponentInstanceDelegate( ComponentModel model, object instance );
+
+    /// <summary>
+    /// 组件包含元数据信息的委托
+    /// </summary>
+    public delegate void ComponentModelDelegate( ComponentModel model );
+
+    /// <summary>
+    /// 组件包含处理程序的委托
+    /// </summary>
+    /// <param name="handler">处理程序,它能够实例化组件</param>
+    public delegate void HandlerDelegate( IHandler handler, ref bool stateChanged );
 
 	/// <summary>
-	/// Represents a delegate which holds basic information about a component
-	/// and its instance.
-	/// </summary>
-	/// <param name="model">Component meta information</param>
-	/// <param name="instance">Component instance</param>
-	public delegate void ComponentInstanceDelegate( ComponentModel model, object instance );
-
-	/// <summary>
-	/// Represents a delegate which holds the information about the 
-	/// component
-	/// </summary>
-	public delegate void ComponentModelDelegate( ComponentModel model );
-
-	/// <summary>
-	/// Represents a delegate which holds a handler
-	/// </summary>
-	/// <param name="handler">handler that holds a component and is capable of 
-	/// creating an instance of it.
-	/// </param>
-//	public delegate void HandlerDelegate( IHandler handler );
-
-	/// <summary>
-	/// Represents a delegate which holds a handler
-	/// </summary>
-	/// <param name="handler">handler that holds a component and is capable of 
-	/// creating an instance of it.
-	/// </param>
-	public delegate void HandlerDelegate( IHandler handler, ref bool stateChanged );
-
-	/// <summary>
-	/// Represents a delegate which holds dependency
-	/// resolving information.
+	/// 包含依赖解析的委托
 	/// </summary>
 	public delegate void DependencyDelegate(ComponentModel client, DependencyModel model, Object dependency);
 
 	/// <summary>
-	/// Summary description for IKernelEvents.
+	/// 对内核事件接口的汇总
 	/// </summary>
 	public interface IKernelEvents
 	{
 		/// <summary>
-		/// Event fired when a new component is registered 
-		/// on the kernel.
+        /// 当组件在内核中注册的时候,触发该事件
 		/// </summary>
 		event ComponentDataDelegate ComponentRegistered;
 
 		/// <summary>
-		/// Event fired when a component is removed from the kernel.
+        /// 当组件从内核中移除的时候,触发该事件
 		/// </summary>
 		event ComponentDataDelegate ComponentUnregistered;
 
 		/// <summary>
-		/// Event fired after the ComponentModel is created.
-		/// Allows customizations that may affect the handler.
+        /// 当组件模型被创建的时候,触发该事件
+        /// 允许一些后续影响处理程序(handler)的自定义操作
 		/// </summary>
 		event ComponentModelDelegate ComponentModelCreated;
 
 		/// <summary>
-		/// Event fired when the kernel was added as child of
-		/// another kernel.
+        /// 当内核以孩子节点方式加入到另一个内核中的时候,触发该事件
 		/// </summary>
 		event EventHandler AddedAsChildKernel;
 
 		/// <summary>
-		/// Event fired before the component is created.
+        /// 组件被创建前,触发该事件
 		/// </summary>
 		event ComponentInstanceDelegate ComponentCreated;
 
 		/// <summary>
-		/// Event fired when a component instance destroyed.
+        /// 组件实例对象被销毁的时候,触发该事件
 		/// </summary>
 		event ComponentInstanceDelegate ComponentDestroyed;
 
 		/// <summary>
-		/// Event fired when a new handler is registered 
-		/// (it might be in a valid or waiting dependency state)
+        /// 处理程序(handler)被注册的时候,触发该事件
 		/// </summary>
 		event HandlerDelegate HandlerRegistered;
 
 		/// <summary>
-		/// Event fired when a dependency is being resolved,
-		/// it allows the dependency to be changed,
-		/// but the client ComponentModel must not be altered.
+        /// 依赖项被解决时候,触发该事件
+        /// 允许依赖被改变,客户端组件模型不能被改变
 		/// </summary>
 		event DependencyDelegate DependencyResolving;
 	}
