@@ -1,17 +1,3 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.Handlers
 {
 	using System;
@@ -22,7 +8,7 @@ namespace Castle.MicroKernel.Handlers
 	using Castle.Model;
 
 	/// <summary>
-	/// Implements the basis of <see cref="IHandler"/>
+	/// 抽象的组件处理程序
 	/// </summary>
 	[Serializable]
 	public abstract class AbstractHandler : MarshalByRefObject, IHandler, IExposeDependencyInfo, IDisposable
@@ -33,7 +19,7 @@ namespace Castle.MicroKernel.Handlers
 		private ArrayList dependenciesByService; 
 		private IDictionary dependenciesByKey; 
 
-		protected ILifestyleManager lifestyleManager;
+		protected ILifestyleManager lifestyleManager; //核心依赖,实现组件的创建与释放
 		
 		public AbstractHandler(ComponentModel model)
 		{

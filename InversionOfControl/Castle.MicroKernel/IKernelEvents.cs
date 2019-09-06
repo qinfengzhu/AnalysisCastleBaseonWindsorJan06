@@ -5,26 +5,26 @@ namespace Castle.MicroKernel
 	using Castle.Model;
 
     /// <summary>
-    /// 组件包含基本信息的委托
+    /// 组件基本信息的委托
     /// </summary>
     /// <param name="key">组件的唯一标识</param>
     /// <param name="handler">处理程序,它能够实例化组件</param>
     public delegate void ComponentDataDelegate( String key, IHandler handler );
 
     /// <summary>
-    /// 组件包含基本信息与实例的委托
+    /// 组件基本信息与实例的委托
     /// </summary>
     /// <param name="model">组件的元数据信息(meta)</param>
     /// <param name="instance">组件实例</param>
     public delegate void ComponentInstanceDelegate( ComponentModel model, object instance );
 
     /// <summary>
-    /// 组件包含元数据信息的委托
+    /// 组件元数据信息的委托
     /// </summary>
     public delegate void ComponentModelDelegate( ComponentModel model );
 
     /// <summary>
-    /// 组件包含处理程序的委托
+    /// 组件处理程序的委托
     /// </summary>
     /// <param name="handler">处理程序,它能够实例化组件</param>
     public delegate void HandlerDelegate( IHandler handler, ref bool stateChanged );

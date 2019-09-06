@@ -1,33 +1,16 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.ModelBuilder.Inspectors
 {
 	using System;
 	using System.Reflection;
-
 	using Castle.Model;
-
 	using Castle.MicroKernel.SubSystems.Conversion;
 
-	/// <summary>
-	/// This implementation of <see cref="IContributeComponentModelConstruction"/>
-	/// collects all available constructors and populates them in the model
-	/// as candidates. The Kernel will pick up one of the candidates
-	/// according to a heuristic.
-	/// </summary>
-	[Serializable]
+    /// <summary>
+    /// 构造函数贡献者,实现<see cref="IContributeComponentModelConstruction"/>,
+    /// 收集所有可用的构造函数,并将它们作为候选填充到模型中
+    /// 内核将根据一个启发式方法来选择一个候选对象
+    /// </summary>
+    [Serializable]
 	public class ConstructorDependenciesModelInspector : IContributeComponentModelConstruction
 	{
 		[NonSerialized]
@@ -41,26 +24,26 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 		{
 			if (converter == null)
 			{
-				converter = (ITypeConverter) 
-					kernel.GetSubSystem( SubSystemConstants.ConversionManagerKey );
+				converter = (ITypeConverter)kernel.GetSubSystem( SubSystemConstants.ConversionManagerKey );
 			}
 
 			Type targetType = model.Implementation;
 
-			ConstructorInfo[] constructors = 
-				targetType.GetConstructors(BindingFlags.Public|BindingFlags.Instance);
+			ConstructorInfo[] constructors = targetType.GetConstructors(BindingFlags.Public|BindingFlags.Instance);
 
 			foreach(ConstructorInfo constructor in constructors)
 			{
-				// We register each public constructor
-				// and let the ComponentFactory select an 
-				// eligible amongst the candidates later
-
-				model.Constructors.Add( CreateConstructorCandidate(constructor) );
+                //我们注册每个公共构造函数,
+                //让组件工厂(componentfactory)稍后在候选中选择一个合格的
+                model.Constructors.Add(CreateConstructorCandidate(constructor));
 			}
 		}
 
-		protected virtual ConstructorCandidate CreateConstructorCandidate( ConstructorInfo constructor )
+        /// <summary>
+        /// 创建构造函数候选者
+        /// </summary>
+        /// <param name="constructor">构造函数信息</param>
+		protected virtual ConstructorCandidate CreateConstructorCandidate(ConstructorInfo constructor )
 		{
 			ParameterInfo[] parameters = constructor.GetParameters();
 
@@ -72,19 +55,17 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 
 				Type paramType = parameter.ParameterType;
 
-				if ( converter.CanHandleType(paramType) )
+				if (converter.CanHandleType(paramType))
 				{
-					dependencies[i] = new DependencyModel( 
-						DependencyType.Parameter, parameter.Name, paramType, false );
+					dependencies[i] = new DependencyModel(DependencyType.Parameter, parameter.Name, paramType, false );
 				}
 				else
 				{
-					dependencies[i] = new DependencyModel(
-						DependencyType.Service, parameter.Name, paramType, false );
+					dependencies[i] = new DependencyModel(DependencyType.Service, parameter.Name, paramType, false );
 				}
 			}
 
-			return new ConstructorCandidate( constructor, dependencies );
+			return new ConstructorCandidate(constructor, dependencies);
 		}
 	}
 }

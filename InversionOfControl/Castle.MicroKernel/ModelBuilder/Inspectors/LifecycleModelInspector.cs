@@ -1,29 +1,12 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.ModelBuilder.Inspectors
 {
 	using System;
 	using System.ComponentModel;
-
 	using Castle.Model;
-
 	using Castle.MicroKernel.LifecycleConcerns;
 
 	/// <summary>
-	/// Inspects the type looking for interfaces that constitutes
-	/// lifecycle interfaces, defined in the Castle.Model namespace.
+    /// 检查类型找出实现生命回收接口(在命名空间Castle.Model下)
 	/// </summary>
 	[Serializable]
 	public class LifecycleModelInspector : IContributeComponentModelConstruction
@@ -32,25 +15,24 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 		{
 		}
 
-		/// <summary>
-		/// Checks if the type implements <see cref="IInitializable"/> and or
-		/// <see cref="IDisposable"/> interfaces.
-		/// </summary>
-		/// <param name="kernel"></param>
-		/// <param name="model"></param>
-		public virtual void ProcessModel(IKernel kernel, ComponentModel model)
+        /// <summary>
+        /// 检查类型是否实现了 <see cref="IInitializable"/> 或<see cref="ISupportInitialize"/> 或 <see cref="IDisposable"/>  接口
+        /// </summary>
+        /// <param name="kernel">内核</param>
+        /// <param name="model">组件模型</param>
+        public virtual void ProcessModel(IKernel kernel, ComponentModel model)
 		{
-			if (typeof (IInitializable).IsAssignableFrom(model.Implementation))
+			if (typeof(IInitializable).IsAssignableFrom(model.Implementation))
 			{
-				model.LifecycleSteps.Add( LifecycleStepType.Commission, InitializationConcern.Instance );
+				model.LifecycleSteps.Add(LifecycleStepType.Commission,InitializationConcern.Instance);
 			}
-			if (typeof (ISupportInitialize).IsAssignableFrom(model.Implementation))
+			if (typeof(ISupportInitialize).IsAssignableFrom(model.Implementation))
 			{
-				model.LifecycleSteps.Add( LifecycleStepType.Commission, SupportInitializeConcern.Instance );
+				model.LifecycleSteps.Add(LifecycleStepType.Commission,SupportInitializeConcern.Instance);
 			}
-			if (typeof (IDisposable).IsAssignableFrom(model.Implementation))
+			if (typeof(IDisposable).IsAssignableFrom(model.Implementation))
 			{
-				model.LifecycleSteps.Add( LifecycleStepType.Decommission, DisposalConcern.Instance );
+				model.LifecycleSteps.Add(LifecycleStepType.Decommission,DisposalConcern.Instance);
 			}
 		}
 	}

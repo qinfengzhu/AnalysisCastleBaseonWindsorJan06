@@ -1,17 +1,3 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel
 {
 	using System;
@@ -19,59 +5,49 @@ namespace Castle.MicroKernel
 	using Castle.Model;
 
 	/// <summary>
-	/// Possible states for a IHandler instance
+    /// 标识Handler的状态
 	/// </summary>
 	public enum HandlerState
 	{
 		/// <summary>
-		/// The component can be requested
+		/// 组件可以被实例化
 		/// </summary>
 		Valid,
 		/// <summary>
-		/// The component can not be requested 
-		/// as it still depending on a external 
-		/// dependency not yet available
+        /// 组件不能被实例化,因为它的一些依赖还不可用
 		/// </summary>
 		WaitingDependency
 	}
 
 	/// <summary>
-	/// Contract for the IHandler, which manages an
-	/// component state and coordinates its creation 
-	/// and destruction (dispatching to activators, lifestyle managers)
+    /// 管理组件的状态,协调组件的创建(分发给Activators)与销毁(分发给生命周期Manager)
 	/// </summary>
 	public interface IHandler
 	{
 		/// <summary>
-		/// Initializes the handler with a reference to the
-		/// kernel.
+		/// 初始化Handler
 		/// </summary>
-		/// <param name="kernel"></param>
+		/// <param name="kernel">内核</param>
 		void Init(IKernel kernel);
 
 		/// <summary>
-		/// Implementors should return a valid instance 
-		/// for the component the handler is responsible.
-		/// It should throw an exception in the case the component
-		/// can't be created for some reason
+        /// 实现者必须返回一个可用的组件实例,当组件不能创建的时候应该抛出异常
 		/// </summary>
-		/// <returns></returns>
 		object Resolve();
 
 		/// <summary>
-		/// Implementors should dispose the component instance
+        /// 实现者必须释放组件实例
 		/// </summary>
 		/// <param name="instance"></param>
 		void Release(object instance);
 
 		/// <summary>
-		/// Gets the state of the handler
+        /// Handler当前状态
 		/// </summary>
 		HandlerState CurrentState { get; }
 
 		/// <summary>
-		/// Gets the model of the component being 
-		/// managed by this handler.
+        /// 组件模型
 		/// </summary>
 		ComponentModel ComponentModel { get; }
 	}

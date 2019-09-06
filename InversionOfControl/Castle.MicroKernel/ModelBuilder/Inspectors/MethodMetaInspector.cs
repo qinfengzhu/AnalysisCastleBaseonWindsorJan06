@@ -1,36 +1,18 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.ModelBuilder.Inspectors
 {
 	using System;
 	using System.Collections;
 	using System.Configuration;
 	using System.Reflection;
-
 	using Castle.Model;
 	using Castle.Model.Configuration;
-
 	using Castle.MicroKernel.SubSystems.Conversion;
 
-
-	/// <summary>
-	/// Check for a node 'methods' within the component 
-	/// configuration. For each child a <see cref="MethodMetaModel"/> is created
-	/// and added to ComponentModel's methods collection
-	/// </summary>
-	public class MethodMetaInspector : IContributeComponentModelConstruction
+    /// <summary>
+    /// 检查配置文件中的methods节点
+    /// 每一个方法对应一个<see cref="MethodMetaModel"/> 
+    /// </summary>
+    public class MethodMetaInspector : IContributeComponentModelConstruction
 	{
 		private static readonly BindingFlags AllMethods = 
 			BindingFlags.Public|BindingFlags.NonPublic|
@@ -47,7 +29,7 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 
 			if (methodsNode == null) return;
 
-			EnsureHasReferenceToConverter(kernel);
+			EnsureHasReferenceToConverter(kernel); //转换器
 
 			foreach(IConfiguration methodNode in methodsNode.Children)
 			{
@@ -64,16 +46,15 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 
 				model.MethodMetaModels.Add( metaModel );
 
-				String signature = methodNode.Attributes["signature"];
+				String signature = methodNode.Attributes["signature"]; //签名,内容为类型的全名(System.String;System.Collection.Genirec.List`)
 
 				MethodInfo[] methods = GetMethods(model.Implementation, name, signature);
 
-				RegisterMethodsForFastAccess(methods, signature, metaModel, model);
+				RegisterMethodsForFastAccess(methods, signature, metaModel, model); //登记方法到组件模型上
 			}
 		}
 
-		private void RegisterMethodsForFastAccess(MethodInfo[] methods, 
-			String signature, MethodMetaModel metaModel, ComponentModel model)
+		private void RegisterMethodsForFastAccess(MethodInfo[] methods,String signature, MethodMetaModel metaModel, ComponentModel model)
 		{
 			foreach(MethodInfo method in methods)
 			{
@@ -106,10 +87,16 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 		{
 			if (converter != null) return;
 
-			converter = (ITypeConverter) 
-				kernel.GetSubSystem( SubSystemConstants.ConversionManagerKey );
+			converter = (ITypeConverter)kernel.GetSubSystem(SubSystemConstants.ConversionManagerKey);
 		}
 
+        /// <summary>
+        /// 优先获取签名的方法
+        /// 当签名有值的时候,为方法的参数类型集合以';'进行分割
+        /// </summary>
+        /// <param name="implementation">方法所属的类类型</param>
+        /// <param name="name">方法名称</param>
+        /// <param name="signature">方法参数类型签名</param>
 		private MethodInfo[] GetMethods(Type implementation, String name, String signature)
 		{
 			if (signature == null || signature.Length == 0)
@@ -126,11 +113,11 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 					}
 				}
 
-				return (MethodInfo[]) methods.ToArray( typeof(MethodInfo) );
+				return (MethodInfo[]) methods.ToArray(typeof(MethodInfo));
 			}
 			else
 			{
-				MethodInfo methodInfo = implementation.GetMethod(name, AllMethods, null, ConvertSignature(signature), null );
+				MethodInfo methodInfo = implementation.GetMethod(name, AllMethods, null, ConvertSignature(signature), null ); //获取特定签名参数方法
 
 				if (methodInfo == null) return new MethodInfo[0];
 
@@ -138,6 +125,11 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 			}
 		}
 
+        /// <summary>
+        /// 参数签名进行类型转换,比如(System.String;System.Int)
+        /// </summary>
+        /// <param name="signature">参数签名</param>
+        /// <returns>参数类型集合</returns>
 		private Type[] ConvertSignature(string signature)
 		{
 			String[] parameters = signature.Split(';');
@@ -148,7 +140,7 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 			{
 				try
 				{
-					types.Add( converter.PerformConversion( param, typeof(Type) ) );
+					types.Add(converter.PerformConversion(param,typeof(Type)));
 				}
 				catch(Exception ex)
 				{

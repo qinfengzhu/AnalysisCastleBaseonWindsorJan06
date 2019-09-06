@@ -1,31 +1,13 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.ModelBuilder.Inspectors
 {
 	using System;
 	using System.Reflection;
-
 	using Castle.Model;
 	using Castle.MicroKernel.SubSystems.Conversion;
 
 	/// <summary>
-	/// This implementation of <see cref="IContributeComponentModelConstruction"/>
-	/// collects all potential writable puplic properties exposed by the component 
-	/// implementation and populates the model with them.
-	/// The Kernel might be able to set some of these properties when the component 
-	/// is requested.
+	/// 属性贡献者 <see cref="IContributeComponentModelConstruction"/>
+    /// 收集组件公开的可写属性,并且放入到组件模型中
 	/// </summary>
 	[Serializable]
 	public class PropertiesDependenciesModelInspector : IContributeComponentModelConstruction
@@ -37,28 +19,29 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 		{
 		}
 
-		/// <summary>
-		/// Adds the properties as optional dependencies of this component.
-		/// </summary>
-		/// <param name="kernel"></param>
-		/// <param name="model"></param>
-		public virtual void ProcessModel(IKernel kernel, ComponentModel model)
+        /// <summary>
+        /// 添加属性作为此组件的可选依赖项.
+        /// </summary>
+        /// <param name="kernel">内核</param>
+        /// <param name="model">组件模型</param>
+        public virtual void ProcessModel(IKernel kernel, ComponentModel model)
 		{
 			if (converter == null)
 			{
-				converter = (ITypeConverter) 
-					kernel.GetSubSystem( SubSystemConstants.ConversionManagerKey );
+				converter = (ITypeConverter)kernel.GetSubSystem(SubSystemConstants.ConversionManagerKey);
 			}
-
 			InspectProperties(model);
 		}
 
+        /// <summary>
+        /// 检查属性集合
+        /// </summary>
+        /// <param name="model">组件模型</param>
 		protected virtual void InspectProperties(ComponentModel model)
 		{
 			Type targetType = model.Implementation;
 	
-			PropertyInfo[] properties = targetType.GetProperties( 
-				BindingFlags.Public|BindingFlags.Instance );
+			PropertyInfo[] properties = targetType.GetProperties(BindingFlags.Public|BindingFlags.Instance);
 	
 			foreach(PropertyInfo property in properties)
 			{
@@ -71,22 +54,19 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 
 				Type propertyType = property.PropertyType;
 
-				// All these dependencies are simple guesses
-				// So we make them optional (the 'true' parameter below)
+				//所有的依赖都是简单的猜测
+				//所以我们认为这个是可选的(最后一个参数为true)
 
-				if ( converter.CanHandleType(propertyType) )
+				if (converter.CanHandleType(propertyType))
 				{
 					dependency = new DependencyModel(DependencyType.Parameter, property.Name, propertyType, true);
 				}
-				else if (propertyType.IsInterface || propertyType.IsClass)
+				else if(propertyType.IsInterface || propertyType.IsClass)
 				{
 					dependency = new DependencyModel(DependencyType.Service, property.Name, propertyType, true);
 				}
 				else
 				{
-					// What is it?!
-					// Awkward type, probably.
-
 					continue;
 				}
 

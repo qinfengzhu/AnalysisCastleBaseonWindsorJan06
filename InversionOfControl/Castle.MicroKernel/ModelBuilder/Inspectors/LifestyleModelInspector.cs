@@ -1,43 +1,25 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.ModelBuilder.Inspectors
 {
 	using System;
 	using System.Configuration;
 
 	using Castle.Model;
-	
-	/// <summary>
-	/// Inspects the component configuration and the type looking for a
-	/// definition of lifestyle type. The configuration preceeds whatever
-	/// is defined in the component.
-	/// </summary>
-	/// <remarks>
-	/// This inspector is not guarantee to always set up an lifestyle type. 
-	/// If nothing could be found it wont touch the model. In this case is up to
-	/// the kernel to estabish a default lifestyle for components.
-	/// </remarks>
-	[Serializable]
+
+    /// <summary>
+    /// 查询组件的配置,找到组件的生命周期类型
+    /// </summary>
+    /// <remarks>
+    /// 该组件模型贡献者不能保证获得一种生命周期类型
+    /// 如果什么也找不到，它就不会修改模型;在这种情况下,由内核来为组件建立默认的生命周期类型
+    /// </remarks>
+    [Serializable]
 	public class LifestyleModelInspector : IContributeComponentModelConstruction
 	{
 		/// <summary>
-		/// Seaches for the lifestyle in the configuration and, if unsuccessful
-		/// look for the lifestyle attribute in the implementation type.
+        /// 优先配置里面的生命周期配置,如果没有则查找具体实现类型的生命周期特性
 		/// </summary>
-		/// <param name="kernel"></param>
-		/// <param name="model"></param>
+		/// <param name="kernel">内核</param>
+		/// <param name="model">组件模型</param>
 		public virtual void ProcessModel(IKernel kernel, ComponentModel model)
 		{
 			if (!ReadLifestyleFromConfiguration(model))
@@ -46,17 +28,11 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 			}
 		}
 
-		/// <summary>
-		/// Reads the attribute "lifestyle" associated with the 
-		/// component configuration and tries to convert to <see cref="LifestyleType"/> 
-		/// enum type. 
-		/// </summary>
-		/// <exception cref="System.Configuration.ConfigurationException">
-		/// If the conversion fails
-		/// </exception>
-		/// <param name="model"></param>
-		/// <returns></returns>
-		protected virtual bool ReadLifestyleFromConfiguration(ComponentModel model)
+        /// <summary>
+        /// 从配置中读取lifestyle属性,然后转换为LifestyleType枚举类型<see cref="LifestyleType"/> 
+        /// </summary>
+        /// <param name="model">组件模型</param>
+        protected virtual bool ReadLifestyleFromConfiguration(ComponentModel model)
 		{
 			if (model.Configuration != null)
 			{
@@ -66,38 +42,35 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 				{
 					try
 					{
-						LifestyleType type = (LifestyleType) 
-							Enum.Parse(typeof(LifestyleType), lifestyle, true);
-
+						LifestyleType type = (LifestyleType)Enum.Parse(typeof(LifestyleType), lifestyle, true);
 						model.LifestyleType = type;
 
 					}
 					catch(Exception ex)
 					{
-						String message = String.Format(
-							"Could not convert the specified attribute value " + 
-							"{0} to a valid LifestyleType enum type", lifestyle);
-						
+						String message = String.Format("Could not convert the specified attribute value " + "{0} to a valid LifestyleType enum type", lifestyle);						
 						throw new ConfigurationException(message, ex);
 					}
 
 					if (model.LifestyleType == LifestyleType.Pooled)
 					{
-						ExtractPoolConfig(model);
+						ExtractPoolConfig(model); //细致分析池配置信息
 					}
 					else if(model.LifestyleType == LifestyleType.Custom)
 					{
-						ExtractCustomConfig(model);
+						ExtractCustomConfig(model);//细致分析自定义配置信息
 					}
-
 
 					return true;
 				}
 			}
-
 			return false;
 		}
 
+        /// <summary>
+        /// 细致分析对象池配置信息
+        /// </summary>
+        /// <param name="model">组件模型</param>
 		private void ExtractPoolConfig(ComponentModel model)
 		{
 			String initial = model.Configuration.Attributes["initialPoolSize"];
@@ -113,6 +86,10 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 			}
 		}
 
+        /// <summary>
+        /// 细致分析自定义配置信息
+        /// </summary>
+        /// <param name="model">组件模型</param>
 		private void ExtractCustomConfig(ComponentModel model)
 		{
 			String customLifestyleType = model.Configuration.Attributes["customLifestyleType"];
@@ -137,27 +114,23 @@ namespace Castle.MicroKernel.ModelBuilder.Inspectors
 			}
 		}
 
-		/// <summary>
-		/// Check if the type expose one of the lifestyle attributes
-		/// defined in Castle.Model namespace.
-		/// </summary>
-		/// <param name="model"></param>
-		protected virtual void ReadLifestyleFromType(ComponentModel model)
+        /// <summary>
+        /// 检查组件类型暴露的Lifestyle属性标记
+        /// </summary>
+        /// <param name="model">组件模型</param>
+        protected virtual void ReadLifestyleFromType(ComponentModel model)
 		{
-			object[] attributes = model.Implementation.GetCustomAttributes( 
-				typeof(LifestyleAttribute), true );
+			object[] attributes = model.Implementation.GetCustomAttributes(typeof(LifestyleAttribute),true);
 
 			if (attributes.Length != 0)
 			{
-				LifestyleAttribute attribute = (LifestyleAttribute)
-					attributes[0];
+				LifestyleAttribute attribute = (LifestyleAttribute)attributes[0];
 
 				model.LifestyleType = attribute.Lifestyle;
 
 				if (model.LifestyleType == LifestyleType.Custom)
 				{
-					CustomLifestyleAttribute custom = (CustomLifestyleAttribute)
-						attribute;
+					CustomLifestyleAttribute custom = (CustomLifestyleAttribute)attribute;
 					model.CustomLifestyle = custom.LifestyleHandlerType;
 				}
 				else if (model.LifestyleType == LifestyleType.Pooled)

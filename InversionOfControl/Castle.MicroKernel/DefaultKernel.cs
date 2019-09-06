@@ -154,7 +154,7 @@ namespace Castle.MicroKernel
 			if (classType == null) throw new ArgumentNullException("classType");
 
 			ComponentModel model = ComponentModelBuilder.BuildModel(key, classType, classType, null);
-			RaiseComponentModelCreated(model);
+			RaiseComponentModelCreated(model);//触发组件模型已经创建事件
 			IHandler handler = HandlerFactory.Create(model);
 			RegisterHandler(key, handler);
 		}
@@ -272,6 +272,10 @@ namespace Castle.MicroKernel
 			RegisterHandler(key, handler);
 		}
 
+        /// <summary>
+        /// 根据组件的唯一标识,移除组件
+        /// </summary>
+        /// <param name="key">组件的唯一标识</param>
 		public virtual bool RemoveComponent(String key)
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -317,6 +321,10 @@ namespace Castle.MicroKernel
 			return false;
 		}
 
+        /// <summary>
+        /// 判断是否包含组件,唯一标识判断
+        /// </summary>
+        /// <param name="key">唯一标识</param>
 		public virtual bool HasComponent(String key)
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -334,6 +342,10 @@ namespace Castle.MicroKernel
 			return false;
 		}
 
+        /// <summary>
+        /// 判断是否包含组件,组件服务类型
+        /// </summary>
+        /// <param name="serviceType">组件服务类型</param>
 		public virtual bool HasComponent(Type serviceType)
 		{
 			if (serviceType == null) throw new ArgumentNullException("serviceType");
@@ -351,6 +363,11 @@ namespace Castle.MicroKernel
 			return false;
 		}
 
+        /// <summary>
+        /// 根据为一标识,获取组件的实例
+        /// </summary>
+        /// <param name="key">组件唯一标识</param>
+        /// <returns>组件的实例</returns>
 		public virtual object this[String key]
 		{
 			get
@@ -368,6 +385,11 @@ namespace Castle.MicroKernel
 			}
 		}
 
+        /// <summary>
+        /// 根据组件类型,获取组件的实例
+        /// </summary>
+        /// <param name="service">组件类型</param>
+        /// <returns>组件的实例</returns>
 		public virtual object this[Type service]
 		{
 			get
@@ -385,6 +407,10 @@ namespace Castle.MicroKernel
 			}
 		}
 
+        /// <summary>
+        /// 释放组件实例
+        /// </summary>
+        /// <param name="instance">组件实例</param>
 		public virtual void ReleaseComponent(object instance)
 		{
 			if (ReleasePolicy.HasTrack(instance))
@@ -423,6 +449,10 @@ namespace Castle.MicroKernel
 			set { AddSubSystem(SubSystemConstants.ConfigurationStoreKey, value); }
 		}
 
+        /// <summary>
+        /// 根据组件唯一标识,获取组件处理程序
+        /// </summary>
+        /// <param name="key">组件唯一标识</param>
 		public virtual IHandler GetHandler(String key)
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -437,6 +467,10 @@ namespace Castle.MicroKernel
 			return handler;
 		}
 
+        /// <summary>
+        /// 根据组件服务类型,获取组件处理程序
+        /// </summary>
+        /// <param name="service">组件类型</param>
 		public virtual IHandler GetHandler(Type service)
 		{
 			if (service == null) throw new ArgumentNullException("service");
@@ -452,24 +486,19 @@ namespace Castle.MicroKernel
 		}
 
 		/// <summary>
-		/// Return handlers for components that 
-		/// implements the specified service.
+        /// 获取所有的组件处理程序,根据组件服务类型
 		/// </summary>
-		/// <param name="service"></param>
-		/// <returns></returns>
+		/// <param name="service">组件服务类型</param>
 		public virtual IHandler[] GetHandlers(Type service)
 		{
 			return NamingSubSystem.GetHandlers(service);
 		}
 
-		/// <summary>
-		/// Return handlers for components that 
-		/// implements the specified service. 
-		/// The check is made using IsAssignableFrom
-		/// </summary>
-		/// <param name="service"></param>
-		/// <returns></returns>
-		public virtual IHandler[] GetAssignableHandlers(Type service)
+        /// <summary>
+        /// 获取所有的组件处理程序,根据组件服务类型(IsAssignableFrom)
+        /// </summary>
+        /// <param name="service">组件服务类型</param>
+        public virtual IHandler[] GetAssignableHandlers(Type service)
 		{
 			return NamingSubSystem.GetAssignableHandlers(service);
 		}
@@ -479,6 +508,11 @@ namespace Castle.MicroKernel
 			get { return releaserPolicy; }
 		}
 
+        /// <summary>
+        /// 添加基础设施
+        /// </summary>
+        /// <param name="key">基础设施唯一标识</param>
+        /// <param name="facility">基础设施</param>
 		public virtual void AddFacility(String key, IFacility facility)
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -490,9 +524,8 @@ namespace Castle.MicroKernel
 		}
 
 		/// <summary>
-		/// Returns the facilities registered on the kernel.
+        /// 返回所有已经在内核注册过的基础设施
 		/// </summary>
-		/// <returns></returns>
 		public virtual IFacility[] GetFacilities()
 		{
 			IFacility[] list = new IFacility[ facilities.Count ];
@@ -500,15 +533,24 @@ namespace Castle.MicroKernel
 			return list;
 		}
 
+        /// <summary>
+        /// 添加子系统
+        /// </summary>
+        /// <param name="key">唯一标识</param>
+        /// <param name="subsystem">子系统</param>
 		public virtual void AddSubSystem(String key, ISubSystem subsystem)
 		{
 			if (key == null) throw new ArgumentNullException("key");
-			if (subsystem == null) throw new ArgumentNullException("facility");
+			if (subsystem == null) throw new ArgumentNullException("subsystem");
 
 			subsystem.Init(this);
 			subsystems[key] = subsystem;
 		}
 
+        /// <summary>
+        /// 根据唯一标识,获取子系统
+        /// </summary>
+        /// <param name="key">唯一标识</param>
 		public virtual ISubSystem GetSubSystem(String key)
 		{
 			if (key == null) throw new ArgumentNullException("key");
@@ -516,6 +558,10 @@ namespace Castle.MicroKernel
 			return subsystems[key] as ISubSystem;
 		}
 
+        /// <summary>
+        /// 添加子内核
+        /// </summary>
+        /// <param name="childKernel">子内核</param>
 		public virtual void AddChildKernel(IKernel childKernel)
 		{
 			if (childKernel == null) throw new ArgumentNullException("childKernel");
@@ -529,9 +575,6 @@ namespace Castle.MicroKernel
 			get { return parentKernel; }
 			set
 			{
-				// TODO: Assert no previous parent was setted
-				// TODO: Assert value is not null
-
 				parentKernel = value;
 
 				parentKernel.ComponentRegistered += new ComponentDataDelegate(RaiseComponentRegistered);
@@ -546,13 +589,18 @@ namespace Castle.MicroKernel
 			get { return resolver; }
 		}
 
+        /// <summary>
+        /// 根据组件模型创建组件激活器
+        /// </summary>
+        /// <param name="model">组件模型</param>
+        /// <returns>组件激活器</returns>
 		public virtual IComponentActivator CreateComponentActivator(ComponentModel model)
 		{
 			if (model == null) throw new ArgumentNullException("model");
 
 			IComponentActivator activator = null;
 
-			if (model.CustomComponentActivator == null)
+			if (model.CustomComponentActivator == null)  //默认组件激活器
 			{
 				activator = new DefaultComponentActivator(model, this,
 								new ComponentInstanceDelegate(RaiseComponentCreated),
@@ -562,7 +610,7 @@ namespace Castle.MicroKernel
 			{
 				try
 				{
-					activator = (IComponentActivator)
+					activator = (IComponentActivator) //自定义组件激活器
 						Activator.CreateInstance(model.CustomComponentActivator,
 						    new object[]
 						    {
@@ -581,7 +629,7 @@ namespace Castle.MicroKernel
 		}
 
 		/// <summary>
-		/// Graph of components and iteractions.
+		/// 组件的图结构
 		/// </summary>
 		public GraphNode[] GraphNodes 
 		{ 
