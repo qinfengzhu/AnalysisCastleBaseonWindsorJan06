@@ -591,6 +591,7 @@ namespace Castle.MicroKernel
 
         /// <summary>
         /// 根据组件模型创建组件激活器
+        /// 被AbstractHandler使用,组件的实例化都落在IComponentActivator.Create,释放落在Destroy
         /// </summary>
         /// <param name="model">组件模型</param>
         /// <returns>组件激活器</returns>

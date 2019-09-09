@@ -1,41 +1,34 @@
 namespace Castle.MicroKernel
 {
 	/// <summary>
-	/// Implements the instance creation logic. The default
-	/// implementation should rely on an ordinary call to 
-	/// Activator.CreateInstance(). 
+    /// 实现实例的创建
+    /// 默认的实例创建调用 Activator.CreateInstance()
 	/// </summary>
 	/// <remarks>
-	/// This interface is provided in order to allow custom components
-	/// to be created using a different logic, such as using a specific factory
-	/// or builder.
+    /// 接口允许自定义的组件创建,例如某些特定的工厂构建器
 	/// <br/>
-	/// The constructor for implementation have the following signature:
+    /// 构造函数必须包含下面标记
 	/// <code>
 	/// ComponentModel model, IKernel kernel, 
 	/// ComponentInstanceDelegate onCreation, 
 	/// ComponentInstanceDelegate onDestruction
 	/// </code>
-	/// The Activator should raise the events onCreation and onDestruction
-	/// in order to correctly implement the contract. Usually the best
-	/// way of creating a custom activator is by extending the existing ones.
-	/// 
+    /// 构建器必须触发onCreation与onDestruction这两个事件
 	/// <seealso cref="ComponentActivator.AbstractComponentActivator"/>
 	/// <seealso cref="ComponentActivator.DefaultComponentActivator"/>
 	/// </remarks>
 	public interface IComponentActivator
 	{
 		/// <summary>
-		/// Should return a new component instance.
+		/// 返回组件的实例对象
 		/// </summary>
 		/// <returns></returns>
 		object Create();
 
-		/// <summary>
-		/// Should perform all necessary work to dispose the instance
-		/// and/or any resource related to it.
-		/// </summary>
-		/// <param name="instance"></param>
-		void Destroy(object instance);
+        /// <summary>
+        /// 应该执行所有必要的工作来释放实例和与其相关的任何资源
+        /// </summary>
+        /// <param name="instance">组件实例对象</param>
+        void Destroy(object instance);
 	}
 }

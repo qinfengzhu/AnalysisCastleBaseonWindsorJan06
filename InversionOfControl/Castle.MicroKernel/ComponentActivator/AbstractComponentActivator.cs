@@ -1,30 +1,15 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.ComponentActivator
 {
 	using System;
 
 	using Castle.Model;
 
-	/// <summary>
-	/// Abstract implementation of <see cref="IComponentActivator"/>.
-	/// The implementors must only override the InternalCreate and 
-	/// InternalDestroy methods in order to perform their creation and
-	/// destruction logic.
-	/// </summary>
-	[Serializable]
+    /// <summary>
+    /// Abstract implementation of <see cref="IComponentActivator"/>.
+    /// 实现必须重写 InternalCreate 与  InternalDestroy 方法
+    /// 执行他们自己的构建与销毁逻辑
+    /// </summary>
+    [Serializable]
 	public abstract class AbstractComponentActivator : IComponentActivator
 	{
 		private IKernel kernel;
@@ -33,7 +18,7 @@ namespace Castle.MicroKernel.ComponentActivator
 		private ComponentInstanceDelegate onDestruction;
 
 		/// <summary>
-		/// Constructs an AbstractComponentActivator
+		/// 构造函数
 		/// </summary>
 		public AbstractComponentActivator(ComponentModel model, IKernel kernel, 
 			ComponentInstanceDelegate onCreation, 
@@ -69,7 +54,7 @@ namespace Castle.MicroKernel.ComponentActivator
 
 		protected abstract void InternalDestroy(object instance);
 
-		#region IComponentActivator Members
+		#region 抽象构造函数成员
 
 		public virtual object Create()
 		{
