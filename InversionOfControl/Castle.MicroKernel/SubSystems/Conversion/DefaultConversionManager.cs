@@ -6,7 +6,7 @@ namespace Castle.MicroKernel.SubSystems.Conversion
 	using Castle.Model.Configuration;
 
 	/// <summary>
-	/// Composition of all available conversion managers
+	/// 所有可用转换器的组合
 	/// </summary>
 	[Serializable]
 	public class DefaultConversionManager : AbstractSubSystem, IConversionManager, ITypeConverterContext

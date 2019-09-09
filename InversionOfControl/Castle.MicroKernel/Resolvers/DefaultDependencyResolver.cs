@@ -25,8 +25,7 @@ namespace Castle.MicroKernel.Resolvers
 		{
 			this.kernel = kernel;
 
-			this.converter = (ITypeConverter) 
-				kernel.GetSubSystem( SubSystemConstants.ConversionManagerKey );
+			this.converter = (ITypeConverter) kernel.GetSubSystem( SubSystemConstants.ConversionManagerKey );
 		}
 
 		public void Initialize(DependencyDelegate dependencyDelegate)

@@ -1,17 +1,3 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel.Lifestyle.Pool
 {
 	using System;
@@ -38,8 +24,6 @@ namespace Castle.MicroKernel.Lifestyle.Pool
 
 			this.rwlock = new ReaderWriterLock();
 
-			// Thread thread = new Thread(new ThreadStart(InitPool));
-			// thread.Start();
 			InitPool();
 		}
 
@@ -119,12 +103,10 @@ namespace Castle.MicroKernel.Lifestyle.Pool
 
 		#endregion
 
-		#region IDisposable Members
+		#region 销毁成员
 
 		public virtual void Dispose()
 		{
-			// Release all components 
-
 			foreach(object instance in available)
 			{
 				componentActivator.Destroy(instance);
@@ -134,8 +116,7 @@ namespace Castle.MicroKernel.Lifestyle.Pool
 		#endregion
 
 		/// <summary>
-		/// Initializes the pool to a initial size by requesting
-		/// n components and then releasing them.
+		/// 初始化池大小
 		/// </summary>
 		private void InitPool()
 		{

@@ -4,13 +4,12 @@ namespace Castle.MicroKernel.Releasers
 	using System.Collections;
 
 	/// <summary>
-	/// Summary description for AllComponentsReleasePolicy.
+	/// 默认所有组件释放策略
 	/// </summary>
 	[Serializable]
 	public class AllComponentsReleasePolicy : IReleasePolicy
 	{
-		private IDictionary instance2Handler = Hashtable.Synchronized(
-			new Hashtable(CaseInsensitiveHashCodeProvider.Default, new Util.ReferenceComparer()));
+		private IDictionary instance2Handler = Hashtable.Synchronized(new Hashtable(CaseInsensitiveHashCodeProvider.Default, new Util.ReferenceComparer()));
 
 		public AllComponentsReleasePolicy()
 		{

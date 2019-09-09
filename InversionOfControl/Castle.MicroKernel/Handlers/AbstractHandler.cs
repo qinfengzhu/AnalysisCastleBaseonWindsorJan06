@@ -100,12 +100,16 @@ namespace Castle.MicroKernel.Handlers
 			}
 		}
 
+        /// <summary>
+        /// 创建组件生命周期类型管理器
+        /// </summary>
+        /// <param name="activator">组件激活器(负责组件的创建与组件的销毁)</param>
+        /// <returns>组件生命周期类型管理器</returns>
 		protected virtual ILifestyleManager CreateLifestyleManager(IComponentActivator activator)
 		{
 			ILifestyleManager manager = null;
 
-			if (ComponentModel.LifestyleType == LifestyleType.Undefined
-				|| ComponentModel.LifestyleType == LifestyleType.Singleton)
+			if (ComponentModel.LifestyleType == LifestyleType.Undefined || ComponentModel.LifestyleType == LifestyleType.Singleton)
 			{
 				manager = new Lifestyle.SingletonLifestyleManager();
 			}
@@ -119,8 +123,7 @@ namespace Castle.MicroKernel.Handlers
 			}
 			else if (ComponentModel.LifestyleType == LifestyleType.Custom)
 			{
-				manager = (ILifestyleManager) 
-					Activator.CreateInstance( ComponentModel.CustomLifestyle );
+				manager = (ILifestyleManager)Activator.CreateInstance( ComponentModel.CustomLifestyle );
 			}
 			else if (ComponentModel.LifestyleType == LifestyleType.Pooled)
 			{
@@ -139,7 +142,7 @@ namespace Castle.MicroKernel.Handlers
 				manager = new Lifestyle.PoolableLifestyleManager(initial, maxSize);
 			}
 
-			manager.Init( activator, Kernel );
+			manager.Init(activator, Kernel);
 
 			return manager;
 		}

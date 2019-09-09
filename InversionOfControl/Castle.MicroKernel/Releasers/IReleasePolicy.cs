@@ -3,7 +3,7 @@ namespace Castle.MicroKernel
 	using System;
 
 	/// <summary>
-	/// Summary description for IReleasePolicy.
+	/// ÊÍ·Å²ßÂÔ
 	/// </summary>
 	public interface IReleasePolicy : IDisposable
 	{
