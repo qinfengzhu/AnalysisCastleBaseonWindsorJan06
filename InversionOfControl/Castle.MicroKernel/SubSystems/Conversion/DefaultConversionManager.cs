@@ -22,11 +22,22 @@ namespace Castle.MicroKernel.SubSystems.Conversion
 
 		protected virtual void InitDefaultConverters()
 		{
-			Add( new PrimitiveConverter() );
-			Add( new TypeNameConverter() );
-			Add( new EnumConverter() );
+            //{char,DateTime,Decimal,Boolean,Int16,Int32,Int64,UInt16,UInt32,UInt64,Byte,SByte,Single,Double,String}
+            Add( new PrimitiveConverter() ); //值类型转换 Convert.ChangeType(value, targetType) string,type 
+
+            //字符串转换为Type
+            Add( new TypeNameConverter() ); //字符串:类型名称定义 System.String 转换为 Type
+
+            //枚举转换  Enum.Parse( targetType, value, true )
+            Add( new EnumConverter() );
+
+            //无字符串转换,仅能够支持从配置信息中转换
 			Add( new ListConverter() );
+
+            //无字符串转换,仅能够支持从配置信息中转换
 			Add( new DictionaryConverter() );
+
+            //无字符串转换,仅能够支持从配置信息中转换
 			Add( new ArrayConverter() ); 
 		}
 

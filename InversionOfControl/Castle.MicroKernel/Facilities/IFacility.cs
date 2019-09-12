@@ -1,37 +1,21 @@
-// Copyright 2004-2006 Castle Project - http://www.castleproject.org/
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 namespace Castle.MicroKernel
 {
 	using Castle.Model.Configuration;
 
 	/// <summary>
-	/// Unit of extension. A facility should use 
-	/// the extension points offered by the kernel
-	/// to augment its functionality.
+    /// 扩展单元,一个基础设施应该使用内核提供的扩展点加强自己的功能性
 	/// </summary>
 	public interface IFacility
 	{
 		/// <summary>
-		/// 
+		/// 初始化
 		/// </summary>
-		/// <param name="kernel"></param>
-		/// <param name="facilityConfig"></param>
+		/// <param name="kernel">Castle内核</param>
+		/// <param name="facilityConfig">基础设施配置</param>
 		void Init(IKernel kernel, IConfiguration facilityConfig);
 
 		/// <summary>
-		/// 
+		/// 结束基础设置
 		/// </summary>
 		void Terminate();
 	}
